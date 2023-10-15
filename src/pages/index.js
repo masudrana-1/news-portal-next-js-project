@@ -3,7 +3,10 @@ import RootLayout from "@/components/Layouts/RootLayout";
 import Banner from "@/components/UI/Banner";
 
 
-const HomePage = () => {
+const HomePage = ({allNews}) => {
+
+  console.log(allNews);
+  
   return (
     <>
       <Head>
@@ -24,3 +27,21 @@ export default HomePage;
 HomePage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
+
+
+
+//! data fetching
+
+export const getStaticProps = async ()=>{
+
+const res = await fetch("http://localhost:5000/news");
+const data = await res.json();
+
+console.log(data);
+
+  return {
+    props: {
+      allNews: data,
+    }
+  }
+}
