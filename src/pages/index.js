@@ -34,17 +34,35 @@ HomePage.getLayout = function getLayout(page) {
 
 //! data fetching
 
-export const getStaticProps = async () =>{
+//! SSR = Static Side Rendering 
 
-const res = await fetch("http://localhost:5000/news");
-const data = await res.json();
+// export const getStaticProps = async () =>{
 
-console.log(data);
+// const res = await fetch("http://localhost:5000/news");
+// const data = await res.json();
 
-  return {
-    props: {
-      allNews: data,
-    },
-    revalidate: 10,
+// console.log(data);
+
+//   return {
+//     props: {
+//       allNews: data,
+//     },
+//     revalidate: 10,
+//   }
+// }
+
+
+//! SSR = Server Side Rendering
+export const getServerSideProps = async () =>{
+
+  const res = await fetch("http://localhost:5000/news");
+  const data = await res.json();
+  
+  console.log(data);
+  
+    return {
+      props: {
+        allNews: data,
+      }
+    }
   }
-}

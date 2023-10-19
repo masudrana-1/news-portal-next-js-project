@@ -85,25 +85,46 @@ NewsDetailsPage.getLayout = function getLayout(page) {
 //! SSR = static site rendering 
 
 // for dynamic route 
-export const getStaticPaths = async () => {
-    const res = await fetch("http://localhost:5000/news")
-    const newses = await res.json();
+// export const getStaticPaths = async () => {
+//     const res = await fetch("http://localhost:5000/news")
+//     const newses = await res.json();
 
 
-    const paths = newses.map((news)=>({
-        params: {newsId: news.id},
-    }));
+//     const paths = newses.map((news)=>({
+//         params: {newsId: news.id},
+//     }));
 
 
-    return {
-        paths, 
-        fallback: false
-    }
-}
+//     return {
+//         paths, 
+//         fallback: false
+//     }
+// }
 
 
 
-export const getStaticProps = async (context) =>{
+// export const getStaticProps = async (context) =>{
+
+//     const {params} = context;
+
+//     const res = await fetch(`http://localhost:5000/news/${params.newsId}`)
+//     const data = await res.json();
+
+//     console.log(data)
+
+//     return {
+//         props: {
+//             news: data
+//         },
+//     }
+// }
+
+//! ************************************************************************************* */
+
+
+//! SSR = server site rendering
+
+export const getServerSideProps = async (context) =>{
 
     const {params} = context;
 
@@ -118,5 +139,3 @@ export const getStaticProps = async (context) =>{
         },
     }
 }
-
-//! ************************************************************************************* */
