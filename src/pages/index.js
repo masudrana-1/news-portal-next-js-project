@@ -2,11 +2,18 @@ import Head from "next/head";
 import RootLayout from "@/components/Layouts/RootLayout";
 import Banner from "@/components/UI/Banner";
 import AllNews from "@/components/UI/AllNews";
+// import { useGetNewsesQuery } from "@/redux/api/api";
 
 
 const HomePage = ({allNews}) => {
 
-  console.log(allNews);
+  // console.log(allNews);
+
+  //! CSR = Client Side Rendering 
+  //! redux 
+  // const {data, isLoading, isError} = useGetNewsesQuery();
+
+  // console.log(data);
 
   return (
     <>
