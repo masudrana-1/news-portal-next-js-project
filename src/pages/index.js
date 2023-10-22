@@ -74,14 +74,14 @@ HomePage.getLayout = function getLayout(page) {
 //! SSR = Server Side Rendering
 export const getServerSideProps = async () =>{
 
-  const res = await fetch("http://localhost:5000/news");
+  const res = await fetch("http://localhost:3000/api/news");
   const data = await res.json();
   
-  console.log(data);
+  console.log(data.data);
   
     return {
       props: {
-        allNews: data,
+        allNews: data.data,
       }
     }
   }
