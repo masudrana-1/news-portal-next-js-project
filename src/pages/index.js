@@ -16,8 +16,9 @@ const HomePage = ({allNews}) => {
 
   // console.log(data);
 
-  //! lazy loader
- 
+
+  
+  //! lazy loading
 const DynamicBanner = dynamic(
   () => import('@/components/UI/Banner'),
   {
